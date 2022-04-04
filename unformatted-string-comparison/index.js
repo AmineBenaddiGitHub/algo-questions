@@ -33,7 +33,6 @@ const formatter = (s, ptr = 0) => {
 
 const equalWithDeletions = (m, n) => formatter(m) === formatter(n);
 
-// console.log(formatter("a##x", 0));
 console.log(equalWithDeletions("a##x", "#a#x"));
 console.log(
   equalWithDeletions("fi##f%%%th %%year #time###", "fifth year time")
