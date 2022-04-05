@@ -15,14 +15,13 @@ var twoSum = function (nums, target) {
   }
   if (snums[sptr] !== snums[bptr])
     return [
-      nums.findIndex((e) => e === snums[sptr]),
-      nums.findIndex((e) => e === snums[bptr]),
+      nums.indexOf(snums[sptr]),
+      nums.indexOf(snums[bptr]),
     ];
-  const arr = [];
-  nums.forEach((v, i) => {
-    if (v === snums[sptr]) arr.push(i);
-  });
-  return arr;
+  return [
+    nums.indexOf(snums[sptr]),
+    nums.indexOf(snums[bptr], nums.indexOf(snums[sptr]) + 1),
+  ]
 };
 
 console.log(twoSum([2, 7, 11, 15], 9));
