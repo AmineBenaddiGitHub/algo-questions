@@ -4,10 +4,10 @@ const largestSubarraySum = (arr, len) => {
   arr.forEach((_, idx) => {
     if (idx < arr.length - len + 1) {
       const subArr = arr.slice(idx, idx + len);
-      const subArl = subArr.reduce((val, acc) => val + acc, 0);
-      if (subArl > resl) {
+      const subLen = subArr.reduce((val, acc) => val + acc, 0);
+      if (subLen > resl) {
         resa = subArr;
-        resl = subArl;
+        resl = subLen;
       }
     }
   });
