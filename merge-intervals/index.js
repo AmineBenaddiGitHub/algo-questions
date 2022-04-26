@@ -54,6 +54,14 @@ console.log(
   ])
 );
 console.log(
+    mergeIntervals([
+      [1, 4],
+      [8, 10],
+      [7, 20],
+      [2, 6],
+    ])
+  );
+console.log(
   mergeIntervals([
     [1, 2],
     [2, 7],
