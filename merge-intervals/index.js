@@ -22,13 +22,9 @@ const mergeIntervals = (arraysArray, cpt = 0) => {
       Math.max(arraysArray[cpt][1], arraysArray[idx][1]),
     ];
     arraysArray.splice(idx, 1);
-  }
-  if (cpt < arraysArray.length - 1) {
-    if (shouldMerge) {
-      mergeIntervals(arraysArray, cpt);
-    } else {
-      mergeIntervals(arraysArray, cpt + 1);
-    }
+    mergeIntervals(arraysArray, cpt);
+  } else {
+    if (cpt < arraysArray.length - 1) mergeIntervals(arraysArray, cpt + 1);
   }
   return arraysArray;
 };
