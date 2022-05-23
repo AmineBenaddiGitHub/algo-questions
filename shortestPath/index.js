@@ -45,7 +45,7 @@ const grid4 = [
 ];
 
 // If grid[0][0] === 1 and grid[grid.length - 1][grid[0].length - 1] === 2
-// then short paths are composed by downs and rights
+// then all short paths are composed by downs and rights
 const pathsWithDownsAndRights = (
   grid,
   position = [0, 0],
