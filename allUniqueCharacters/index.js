@@ -22,7 +22,7 @@ const allUnique = (str) =>
     .sort()
     .filter((e, idx, arr) => e === arr[idx + 1]).length === 0;
 
-console.assert(allUnique("CaSsidy") === false);
-console.assert(allUnique("Cassidy") === false);
-console.assert(allUnique("cat & dog") === false);
-console.assert(allUnique("cat+dog") === true);
+console.assert(!allUnique("CaSsidy"));
+console.assert(!allUnique("Cassidy"));
+console.assert(!allUnique("cat & dog"));
+console.assert(allUnique("cat+dog"));
