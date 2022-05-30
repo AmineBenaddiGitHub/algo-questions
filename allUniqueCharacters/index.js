@@ -18,11 +18,11 @@ Example:
 const allUnique = (str) =>
   str
     .split("")
-    .sort((a, b) => a.toLowerCase() - b.toLowerCase())
-    .filter((e, idx, arr) => e.toLowerCase() === arr[idx + 1]?.toLowerCase())
-    .length === 0;
+    .map((e) => e.toLowerCase())
+    .sort()
+    .filter((e, idx, arr) => e === arr[idx + 1]).length === 0;
 
-console.log(allUnique("CaSsidy"));
-console.log(allUnique("Cassidy"));
-console.log(allUnique("cat & dog"));
-console.log(allUnique("cat+dog"));
+console.assert(allUnique("CaSsidy") === false);
+console.assert(allUnique("Cassidy") === false);
+console.assert(allUnique("cat & dog") === false);
+console.assert(allUnique("cat+dog") === true);
