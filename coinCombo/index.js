@@ -20,8 +20,7 @@ const coinComputations = (coins, amount, results, path = {}) => {
     results.push(path);
     return;
   }
-  const coin = coins[0];
-  coins.shift();
+  const coin = coins.shift();
   for (let i = 0; i < Math.floor(amount / coin) + 1; i++) {
     path[coin] = i;
     if (amount - i * coin >= 0)
@@ -40,12 +39,12 @@ const amount1 = 17;
 
 console.log(coinCombo(coins1, amount1));
 
-const coins2 = [2,3,5];
+const coins2 = [2, 3, 5];
 const amount2 = 11;
 
 console.log(coinCombo(coins2, amount2));
 
-const coins3 = [3,5];
+const coins3 = [3, 5];
 const amount3 = 7;
 
 console.log(coinCombo(coins3, amount3));
