@@ -7,6 +7,7 @@ const phi = (1 + Math.sqrt(5)) / 2;
 
 const prevFibonacci = (val) => {
   let n = 1;
+  // Formula: F_n = Math.floor((phi)^n/sqrt(5) + 0.5)
   while (Math.floor(Math.pow(phi, n) / Math.sqrt(5) + 0.5) < val) {
     n++;
   }
