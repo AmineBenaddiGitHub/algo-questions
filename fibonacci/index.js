@@ -1,5 +1,9 @@
-const phi = (1 + Math.sqrt(5)) / 2,
-  psi = (1 - Math.sqrt(5)) / 2;
+/*
+Given a Fibonacci number, give the previous Fibonacci number.
+If the number given is not a Fibonacci number, return -1.
+*/
+
+const phi = (1 + Math.sqrt(5)) / 2;
 
 const prevFibonacci = (val) => {
   let n = 1;
