@@ -13,20 +13,18 @@ let dict = ["able", "ale", "apple", "bale", "kangaroo"];
 
 const longestWord = (str, dict) => {
   let res = "";
-  const arr = [...str];
   dict.forEach((d) => {
-    const tmp = [...d];
     let idx1 = 0,
       idx2 = 0;
-    while (idx2 < tmp.length && idx1 < str.length) {
-      if (tmp[idx2] === arr[idx1]) {
+    while (idx2 < d.length && idx1 < str.length) {
+      if (d[idx2] === str[idx1]) {
         idx1++;
         idx2++;
       } else {
         idx1++;
       }
     }
-    if (idx2 === tmp.length && d.length > res.length) res = d;
+    if (idx2 === d.length && d.length > res.length) res = d;
   });
   return res;
 };
