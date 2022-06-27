@@ -26,7 +26,7 @@ const longestWord = (str, dict) => {
         idx1++;
       }
     }
-    if (idx2 === tmp.length && tmp.length > res.length) res = d;
+    if (idx2 === tmp.length && d.length > res.length) res = d;
   });
   return res;
 };
