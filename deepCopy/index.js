@@ -59,8 +59,12 @@ elm5.random = elm2;
 
 const newHead = deepCopy(head);
 
-let ptr = newHead;
+let ptr = head,
+  ptrC = newHead;
 while (ptr) {
-  console.log(ptr);
+  console.log("ptr ", ptr);
+  console.log("ptrC ", ptrC);
+  console.log(ptr === ptrC);
   ptr = ptr.next;
+  ptrC = ptrC.next;
 }
