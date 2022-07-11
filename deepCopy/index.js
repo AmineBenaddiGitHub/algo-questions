@@ -62,9 +62,18 @@ const newHead = deepCopy(head);
 let ptr = head,
   ptrC = newHead;
 while (ptr) {
-  console.log("ptr ", ptr);
-  console.log("ptrC ", ptrC);
-  console.log(ptr === ptrC);
+  console.log("val equality ", ptr.val, ptr.val === ptrC.val);
+  if (ptr.next) {
+    console.log("next equality ", ptr.next.val, ptr.next.val === ptrC.next.val);
+  }
+  if (ptr.random) {
+    console.log(
+      "random equality ",
+      ptr.random.val,
+      ptr.random.val === ptrC.random.val
+    );
+  }
+  console.log("objects inequality", !(ptr === ptrC));
   ptr = ptr.next;
   ptrC = ptrC.next;
 }
