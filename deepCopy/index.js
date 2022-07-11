@@ -5,10 +5,10 @@ function Node(val, next, random) {
 }
 
 function deepCopy(head) {
-  const newHead = new Node(head.val, null, null);
-  const stack = [newHead];
-  let ptr = head;
-  let ptrC = newHead;
+  const newHead = new Node(head.val, null, null),
+    stack = [newHead];
+  let ptr = head,
+    ptrC = newHead;
   while (ptr.next) {
     const elm = new Node(ptr.next.val, null, null);
     ptrC.next = elm;
