@@ -49,7 +49,7 @@ console.log(formateTable(table1));
 
 const table2 = `
 | Syntax | Description | Length |
-| --- | ----------- |  |
+| --- | ----------- ||
 
 
 | Header | Title | 20 |
