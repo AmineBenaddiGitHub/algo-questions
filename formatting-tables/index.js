@@ -1,3 +1,22 @@
+/*
+Given a string that represents a markdown table, return a formatted markdown table.
+A formatted markdown table means that the width of each column is the width of the longest cell in the column.
+
+Example:
+
+Input:
+| Syntax | Description |
+| --- | ----------- |
+| Header | Title |
+| Paragraph | Text |
+
+Output:
+| Syntax    | Description |
+| --------- | ----------- |
+| Header    | Title       |
+| Paragraph | Text        |
+*/
+
 const formateTable = (table) => {
   let tableMatrix = table
     .split("\n")
@@ -31,6 +50,8 @@ console.log(formateTable(table1));
 const table2 = `
 | Syntax | Description | Length |
 | --- | ----------- |  |
+
+
 | Header | Title | 20 |
 | Paragraph | Text | 3000 |
 `;
