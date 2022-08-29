@@ -9,7 +9,7 @@ function addg(a) {
 }
 
 describe("testing addg high order function", () => {
-  it("adds (1)(2) to equal 3", () => {
+  it("adds (1)(2)() to equal 3", () => {
     expect(addg(1)(2)()).toBe(3);
   });
   it("adds (3)(4)(0)() to equal 7", () => {
@@ -22,11 +22,7 @@ describe("testing addg high order function", () => {
     const nb = 10;
     expect(addg(nb)()).toBe(nb);
   });
-  it("returns the same result as input when 1 param is called", () => {
-    const nb = 10;
-    expect(addg(nb)()).toBe(nb);
-  });
-  it("returns the same result as input when 1 param is called", () => {
+  it("returns a function when no undefined call is done at the end", () => {
     expect(typeof addg(1)).toBe("function");
   });
 });
