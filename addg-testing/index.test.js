@@ -29,4 +29,13 @@ describe("testing addg high order function", () => {
   it("returns a function when no undefined call is done at the end", () => {
     expect(typeof addg(1)).toBe("function");
   });
+  it("concatenates strings", () => {
+    expect(addg("A")("B")()).toBe("AB");
+  });
+  it("converts numbers to strings for concatenation", () => {
+    expect(addg("1")(2)()).toBe("12");
+  });
+  it("returns NaN when calling (NaN)(0)()", () => {
+    expect(addg(NaN)(0)()).toBeNaN();
+  });
 });
