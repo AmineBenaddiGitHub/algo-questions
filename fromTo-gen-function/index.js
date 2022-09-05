@@ -1,6 +1,6 @@
 function fromTo(from, to) {
   let state = from;
-  return () => (++state <= to + 1 ? state - 1 : undefined);
+  return () => (state <= to ? state++ : undefined);
 }
 
 const from = 5,
