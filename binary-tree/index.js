@@ -29,11 +29,10 @@ const binaryTree = (n) => {
     const row = Array.from({ length: n - i }, (_, idx) =>
       idx === 0 ? "/\\" : " \\"
     ).join("");
-    const leftSpace = " ".repeat(i);
-    const rightSpace = " ".repeat(i);
-    res.unshift(leftSpace + row + rightSpace);
+    const spaces = " ".repeat(i);
+    res.unshift(spaces + row + spaces);
   }
   return res.join("\n");
 };
 
-console.log(binaryTree(10));
+console.log(binaryTree(20));
