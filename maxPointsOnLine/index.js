@@ -10,7 +10,9 @@ function maxPointsOnLine(array) {
     vectors.forEach((vector1) => {
       let localMaxPointsOnLine = 0;
       vectors.forEach((vector2) => {
-        if (vector1[0] * vector2[1] === vector1[1] * vector2[0]) {
+        if (
+          Math.abs(vector1[0] * vector2[1] - vector1[1] * vector2[0]) < 0.00001
+        ) {
           localMaxPointsOnLine++;
         }
       });
