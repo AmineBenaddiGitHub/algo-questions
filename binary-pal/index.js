@@ -3,8 +3,11 @@ function binaryPal(n) {
   const len = bin.length;
   return bin
     .split("")
-    .slice(0, Math.round(len / 2))
-    .reduce((acc, val, idx) => acc && val === bin[len - idx - 1], true);
+    .reduce(
+      (acc, val, idx) =>
+        idx < Math.round(len / 2) ? acc && val === bin[len - idx - 1] : acc,
+      true
+    );
 }
 
 console.log(binaryPal(5));
