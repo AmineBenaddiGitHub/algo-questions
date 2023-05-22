@@ -1,0 +1,14 @@
+{
+  "name": "puzzle-score",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "aminbe",
+  "license": "MIT",
+  "dependencies": {
+    "language-grammar-api": "^1.1.6"
+  }
+}
