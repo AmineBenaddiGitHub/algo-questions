@@ -2,7 +2,7 @@ function isBitonic(arr) {
   let max = Math.max(...arr),
     idx = arr.indexOf(max),
     bitonic = idx < arr.length - 1;
-  for (let i = 0; i < idx - 1 && bitonic; i++) {
+  for (let i = 0; i < idx && bitonic; i++) {
     if (arr[i] > arr[i + 1]) bitonic = false;
   }
   for (let i = idx; i < arr.length && bitonic; i++) {
