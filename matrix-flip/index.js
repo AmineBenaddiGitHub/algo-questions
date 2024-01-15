@@ -20,7 +20,7 @@ let array = [
 function flip(matrix, direction) {
   switch (direction) {
     case "horizontal":
-      return matrix.map((e) => e.reverse());
+      return matrix.map((e) => e.map((_, idx) => e.at(idx - 1)));
     case "vertical":
       return matrix.map((e, idx) =>
         e.map((_, jdx) => matrix.at(-idx - 1)?.[jdx])
