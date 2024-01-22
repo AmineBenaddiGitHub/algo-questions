@@ -21,13 +21,37 @@ let root = new Node(1);
 
 function Node(val) {
   this.val = val;
-  if (val !== " ") {
-    this.left = new Node(" ");
-    this.right = new Node(" ");
+  this.left = undefined;
+  this.right = undefined;
+}
+
+function maxDepth(root) {
+  if (root) {
+    if (root.left && root.right)
+      return 1 + Math.max(maxDepth(root.left), maxDepth(root.right));
+    if (root.left) return 1 + maxDepth(root.left);
+    if (root.right) return 1 + maxDepth(root.right);
+    return 1;
+  } else return 0;
+}
+
+function treeCompleter(root, depth) {
+  if (depth > 0) {
+    if (!root.left) {
+      root.left = new Node(" ");
+    }
+    if (!root.right) {
+      root.right = new Node(" ");
+    }
+    treeCompleter(root.left, depth - 1);
+    treeCompleter(root.right, depth - 1);
   }
 }
 
 function printTree(root, res = [], depth = 1) {
+  if (depth === 1) {
+    treeCompleter(root, maxDepth(root));
+  }
   if (root) {
     res.push({ val: root.val || " ", depth: depth });
     if (root.left) {
@@ -43,6 +67,7 @@ function printTree(root, res = [], depth = 1) {
       res.push({ val: " ", depth: depth + 1 });
     }
   }
+
   let leafs = res
     .toSorted((a, b) => a.depth - b.depth)
     .reduce((acc, val) => {
@@ -55,8 +80,7 @@ function printTree(root, res = [], depth = 1) {
       return acc;
     }, [])
     .reverse();
-  // In the general case, we
-  leafs.shift();
+  leafs = leafs.slice(3);
   let spaces = [];
   const cycles = [3, 1];
   for (let i = 0; i < leafs.length; i++) {
@@ -107,7 +131,6 @@ function printTree(root, res = [], depth = 1) {
     }
     output.push(level.join(""));
   }
-  // return leafs;
   return output.join("\r\n");
 }
 
@@ -119,11 +142,11 @@ root1.left.right = new Node(5);
 
 console.log(printTree(root1));
 /*
-           1
-      /         \
-     2           3
+     1
    /   \
-  4     5
+  2     3
+ / \
+4   5
 */
 
 const root2 = new Node(1);
@@ -134,11 +157,11 @@ root2.right.right = new Node(5);
 
 console.log(printTree(root2));
 /*
-           1
-      /         \
-     2           3
-               /   \
-              4     5
+     1
+   /   \
+  2     3
+       / \
+      4   5
 */
 
 const root3 = new Node(1);
@@ -148,6 +171,16 @@ root3.left.left = new Node(4);
 root3.left.right = new Node(5);
 root3.right.left = new Node(6);
 root3.right.right = new Node(7);
+
+console.log(printTree(root3));
+
+/*
+     1
+   /   \
+  2     3
+ / \   / \
+4   5 6   7
+*/
 
 const root4 = new Node("a");
 root4.left = new Node("b");
@@ -184,13 +217,49 @@ root4.right.right.right.right = new Node("5");
 console.log(printTree(root4));
 
 /*
-                                               a
-                        /                                             \
-                       b                                               c
-            /                     \                         /                     \
-           d                       e                       f                       g
-      /         \             /         \             /         \             /         \
-     h           i           j           k           l           m           n           o
-   /   \       /   \       /   \       /   \       /   \       /   \       /   \       /   \
-  p     q     r     s     t     u     v     w     x     y     z     1     2     3     4     5
+                       a
+            /                     \
+           b                       c
+      /         \             /         \
+     d           e           f           g
+   /   \       /   \       /   \       /   \
+  h     i     j     k     l     m     n     o
+ / \   / \   / \   / \   / \   / \   / \   / \
+p   q r   s t   u v   w x   y z   1 2   3 4   5
+*/
+
+const root5 = new Node("a");
+root5.left = new Node("b");
+root5.right = new Node("c");
+root5.left.left = new Node("d");
+root5.left.right = new Node("e");
+root5.right.right = new Node("g");
+root5.left.left.left = new Node("h");
+root5.left.left.right = new Node("i");
+root5.left.right.right = new Node("k");
+root5.right.right.left = new Node("n");
+root5.right.right.right = new Node("o");
+root5.left.left.left.left = new Node("p");
+root5.left.left.left.right = new Node("q");
+root5.left.left.right.left = new Node("r");
+root5.left.left.right.right = new Node("s");
+root5.left.right.right.left = new Node("v");
+root5.left.right.right.right = new Node("w");
+root5.right.right.left.left = new Node("2");
+root5.right.right.left.right = new Node("3");
+root5.right.right.right.left = new Node("4");
+root5.right.right.right.right = new Node("5");
+
+console.log(printTree(root5));
+
+/*
+                       a
+            /                     \
+           b                       c
+      /         \
+     d           e                       g
+   /   \                               /   \
+  h     i           k                 n     o
+ / \   / \         / \               / \   / \
+p   q r   s       v   w             2   3 4   5
 */
