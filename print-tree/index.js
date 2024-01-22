@@ -20,8 +20,8 @@ let root = new Node(1);
 */
 
 function Node(val) {
+  this.val = val;
   if (val !== " ") {
-    this.val = val;
     this.left = new Node(" ");
     this.right = new Node(" ");
   }
@@ -32,13 +32,13 @@ function printTree(root, res = [], depth = 1) {
     res.push({ val: root.val || " ", depth: depth });
     if (root.left) {
       printTree(root.left, res, depth + 2);
-      res.push({ val: "/", depth: depth + 1 });
+      res.push({ val: root.left.val !== " " ? "/" : " ", depth: depth + 1 });
     } else {
       res.push({ val: " ", depth: depth + 1 });
     }
     if (root.right) {
       printTree(root.right, res, depth + 2);
-      res.push({ val: "\\", depth: depth + 1 });
+      res.push({ val: root.left.val !== " " ? "\\" : " ", depth: depth + 1 });
     } else {
       res.push({ val: " ", depth: depth + 1 });
     }
@@ -55,6 +55,7 @@ function printTree(root, res = [], depth = 1) {
       return acc;
     }, [])
     .reverse();
+  // In the general case, we
   leafs.shift();
   let spaces = [];
   const cycles = [3, 1];
@@ -121,9 +122,8 @@ console.log(printTree(root1));
            1
       /         \
      2           3
-   /   \       /   \
+   /   \
   4     5
- / \   / \
 */
 
 const root2 = new Node(1);
@@ -137,9 +137,8 @@ console.log(printTree(root2));
            1
       /         \
      2           3
-   /   \       /   \
+               /   \
               4     5
-             / \   / \
 */
 
 const root3 = new Node(1);
@@ -194,5 +193,4 @@ console.log(printTree(root4));
      h           i           j           k           l           m           n           o
    /   \       /   \       /   \       /   \       /   \       /   \       /   \       /   \
   p     q     r     s     t     u     v     w     x     y     z     1     2     3     4     5
- / \   / \   / \   / \   / \   / \   / \   / \   / \   / \   / \   / \   / \   / \   / \   / \
 */
