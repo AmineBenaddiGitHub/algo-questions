@@ -62,7 +62,7 @@ function printTree(root, res = [], depth = 1) {
     }
     if (root.right) {
       printTree(root.right, res, depth + 2);
-      res.push({ val: root.left.val !== " " ? "\\" : " ", depth: depth + 1 });
+      res.push({ val: root.right.val !== " " ? "\\" : " ", depth: depth + 1 });
     } else {
       res.push({ val: " ", depth: depth + 1 });
     }
@@ -256,9 +256,9 @@ console.log(printTree(root5));
                        a
             /                     \
            b                       c
-      /         \
+      /         \                       \
      d           e                       g
-   /   \                               /   \
+   /   \           \                   /   \
   h     i           k                 n     o
  / \   / \         / \               / \   / \
 p   q r   s       v   w             2   3 4   5
