@@ -20,16 +20,16 @@ let root = new Node(1);
 */
 
 function Node(val) {
-  if (val) {
+  if (val !== " ") {
     this.val = val;
-    this.left = new Node("");
-    this.right = new Node("");
+    this.left = new Node(" ");
+    this.right = new Node(" ");
   }
 }
 
 function printTree(root, res = [], depth = 1) {
   if (root) {
-    res.push({ val: root.val, depth: depth });
+    res.push({ val: root.val || " ", depth: depth });
     if (root.left) {
       printTree(root.left, res, depth + 2);
       res.push({ val: "/", depth: depth + 1 });
@@ -106,6 +106,7 @@ function printTree(root, res = [], depth = 1) {
     }
     output.push(level.join(""));
   }
+  // return leafs;
   return output.join("\r\n");
 }
 
@@ -137,7 +138,7 @@ console.log(printTree(root2));
       /         \
      2           3
    /   \       /   \
-            4     5
+              4     5
              / \   / \
 */
 
