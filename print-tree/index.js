@@ -263,3 +263,32 @@ console.log(printTree(root5));
  / \   / \         / \               / \   / \
 p   q r   s       v   w             2   3 4   5
 */
+
+const root6 = new Node("a");
+root6.left = new Node("b");
+root6.right = new Node("c");
+root6.left.right = new Node("d");
+root6.right.right = new Node("e");
+root6.left.right.right = new Node("f");
+root6.right.right.left = new Node("g");
+root6.right.right.right = new Node("h");
+root6.left.right.right.left = new Node("i");
+root6.left.right.right.right = new Node("j");
+root6.right.right.left.left = new Node("k");
+root6.right.right.left.right = new Node("l");
+root6.right.right.right.left = new Node("m");
+
+console.log(printTree(root6));
+
+/*
+                       a
+            /                     \
+           b                       c
+                \                       \
+                 d                       e
+                   \                   /   \
+                    f                 g     h
+                   / \               / \   /
+                  i   j             k   l m
+*/
+
