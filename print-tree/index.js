@@ -292,3 +292,28 @@ console.log(printTree(root6));
                   i   j k   l m
 */
 
+const root7 = new Node("a");
+root7.left = new Node("b");
+root7.right = new Node("c");
+root7.left.right = new Node("d");
+root7.right.left = new Node("e");
+root7.left.right.right = new Node("f");
+root7.right.left.left = new Node("g");
+root7.left.right.right.left = new Node("i");
+root7.left.right.right.right = new Node("j");
+root7.right.left.left.left = new Node("k");
+root7.right.left.left.right = new Node("l");
+
+console.log(printTree(root7));
+
+/*
+                       a
+            /                     \
+           b                       c
+                \             /
+                 d           e
+                   \       /
+                    f     g
+                   / \   / \
+                  i   j k   l
+*/
