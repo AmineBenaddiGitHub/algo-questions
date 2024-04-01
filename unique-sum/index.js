@@ -9,7 +9,7 @@ function uniqueDigits(num) {
 }
 
 function uniqueSum(arr) {
-  return arr.map((e) => (uniqueDigits(e) ? e : 0)).reduce((s, v) => s + v, 0);
+  return arr.reduce((s, v) => s + (uniqueDigits(v) ? v : 0), 0);
 }
 console.log(uniqueSum([1, 2, 3]));
 console.log(uniqueSum([11, 22, 33]));
