@@ -47,7 +47,7 @@ function curry(func) {
       return (y) => res(y);
     }
   };
-  return (...args) => res(...args);
+  return res;
 }
 
 const addFourUncurry = (a, b, c, d, e, f, g) => a + b + c + d + e + f + g;
