@@ -10,7 +10,7 @@ uncurriedAdd(1, 2, 3, 4); //=> 10
 */
 
 function uncurry(func) {
-  return function (...arg) {
+  return (...arg) => {
     let res = func,
       i = 0;
     while (typeof res === "function") {
@@ -39,14 +39,12 @@ curriedAdd(1)(2)(3)(4); //=> 10
 function curry(func) {
   const args = [];
   let nbr = func.length;
-  const res = function (x) {
+  const res = (x) => {
     args.push(x);
     nbr--;
     if (nbr === 0) return func(...args);
     else {
-      return function (y) {
-        return res(y);
-      };
+      return (y) => res(y);
     }
   };
   return (...args) => res(...args);
