@@ -37,21 +37,21 @@ curriedAdd(1)(2)(3)(4); //=> 10
 */
 
 function curry(func) {
-  this.args = [];
+  const args = [];
   let nbr = func.length;
   const res = function (x) {
-    this.args.push(x);
+    args.push(x);
     nbr--;
-    if (nbr === 0) return func(...this.args);
+    if (nbr === 0) return func(...args);
     else {
       return function (y) {
         return res(y);
       };
     }
   };
-  return (...args) => res.apply(this, args);
+  return (...args) => res(...args);
 }
 
-const addFourUncurry = (a, b, c, d) => a + b + c + d;
+const addFourUncurry = (a, b, c, d, e, f) => a + b + c + d + e + f;
 const curriedAdd = curry(addFourUncurry);
-console.log(curriedAdd(1)(2)(3)(4));
+console.log(curriedAdd(1)(2)(3)(4)(5)(6));
