@@ -52,6 +52,6 @@ function curry(func) {
   return (...args) => res(...args);
 }
 
-const addFourUncurry = (a, b, c, d, e, f) => a + b + c + d + e + f;
+const addFourUncurry = (a, b, c, d, e, f, g) => a + b + c + d + e + f + g;
 const curriedAdd = curry(addFourUncurry);
-console.log(curriedAdd(1)(2)(3)(4)(5)(6));
+console.log(curriedAdd(1)(2)(3)(4)(5)(6)(7));
