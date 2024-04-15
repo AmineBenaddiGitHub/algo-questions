@@ -26,7 +26,7 @@ function uniqueSubstr(str, len = 2) {
     res.start++;
     res.end = 0;
   }
-  // all longest substrings with a length === len (2)
+  // all longest substrings with len (2) unique characters
   res.arr = res.arr.filter((e) => e.length === res.str.length);
   return res.arr;
 }
