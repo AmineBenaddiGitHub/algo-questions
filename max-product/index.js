@@ -7,14 +7,14 @@ any three integers from the list.
 function maxProduct(arr) {
   if (arr.length < 3) return -Infinity;
   let res = arr[0] * arr[1] * arr[2];
-  for (let i = 0; i < arr.length - 2; i++) {
-    for (let j = i + 1; j < arr.length - 1; j++) {
-      for (let k = j + 1; k < arr.length; k++) {
-        const prod = arr[i] * arr[j] * arr[k];
+  arr.forEach((i, idx) => {
+    arr.slice(idx + 1).forEach((j, jdx) => {
+      arr.slice(idx + jdx + 2).forEach((k) => {
+        const prod = i * j * k;
         if (prod > res) res = prod;
-      }
-    }
-  }
+      });
+    });
+  });
   return res;
 }
 
