@@ -2,6 +2,7 @@
 Write a function that takes in a list (of length >= 3) of numbers,
 and returns the maximum product that can be obtained by multiplying
 any three integers from the list.
+(functional solution, not memory efficient :P)
 */
 
 function maxProduct(arr) {
