@@ -47,9 +47,9 @@ stand.updatePrice("banana", 0.3);
 stand.updateQuantity("bananas", 10);
 
 // This one is ignored because of typo
-stand.updatePrice("kaki", 300);
+stand.updatePrice("bananas", 300);
 
 // This one is ignored because of missing data
-stand.addFruit("bananas");
+stand.addFruit("kaki");
 
 console.log(stand.totalValue());
