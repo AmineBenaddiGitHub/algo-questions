@@ -8,10 +8,12 @@ function FruitStand() {
   return {
     stand: {},
     addFruit: function (fruitName, fruitQuantity, fruitPrice) {
-      this.stand[fruitName] = {
-        quantity: fruitQuantity,
-        price: fruitPrice,
-      };
+      if (fruitName && fruitQuantity && fruitPrice) {
+        this.stand[fruitName] = {
+          quantity: fruitQuantity,
+          price: fruitPrice,
+        };
+      }
     },
     updateQuantity: function (fruitName, fruitQuantity) {
       if (this.stand.hasOwnProperty(fruitName)) {
@@ -43,5 +45,11 @@ stand.updatePrice("banana", 0.3);
 
 // This one is ignored because of typo
 stand.updateQuantity("bananas", 10);
+
+// This one is ignored because of typo
+stand.updatePrice("bananas", 300);
+
+// This one is ignored because of missing data
+stand.addFruit("bananas");
 
 console.log(stand.totalValue());
