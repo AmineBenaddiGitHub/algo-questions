@@ -37,3 +37,5 @@ console.log(canPlantFlowers([1, 0, 1, 0, 1], 1) === false);
 console.log(canPlantFlowers([0, 0, 0], 1) === true);
 console.log(canPlantFlowers([0, 0, 0], 2) === true);
 console.log(canPlantFlowers([0, 0, 0], 3) === false);
+console.log(canPlantFlowers([0], 1) === true);
+console.log(canPlantFlowers([0], 2) === false);
