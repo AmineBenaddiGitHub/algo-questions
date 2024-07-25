@@ -5,7 +5,7 @@ sequence of one or more dictionary words.
 
 function wordBreak(str, dict, state = { ctr: 0 }) {
   if (str.length === 0) state.ctr += 1;
-  // We only loop if no solution found
+  // We only loop if no solution found yet
   if (state.ctr === 0) {
     for (const word of dict) {
       if (str.indexOf(word) === 0) {
