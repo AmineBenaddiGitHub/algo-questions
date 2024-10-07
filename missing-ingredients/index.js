@@ -8,7 +8,7 @@ and only account for food that isn't expired.
 
 function missingIngredients(recipe, pantry) {
   return recipe.reduce(
-    (acc, ingredient) => acc + Boolean(pantry.includes(ingredient)),
+    (acc, ingredient) => acc + pantry.includes(ingredient),
     0
   );
 }
