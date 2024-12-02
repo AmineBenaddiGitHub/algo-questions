@@ -23,7 +23,7 @@ function mealPrep(dishes) {
       i++;
       const lastingHours = Math.floor(e / 60);
       const remainingTime = e % 60;
-      for (let j = i; j < lastingHours; j++) {
+      for (let j = i; j < i + lastingHours; j++) {
         schedule[j][idxToFill] = 60;
       }
       if (remainingTime > 0)
