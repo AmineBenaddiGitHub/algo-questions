@@ -31,7 +31,6 @@ function getCharAfterVimCommands(str, commands) {
       default:
         break;
     }
-    console.log(commands[i], pos);
   }
   return matrix[pos[0]][Math.min(pos[1], matrix[pos[0]].length - 1)];
 }
