@@ -38,10 +38,12 @@ const edits = [
 
 function groupChangelogEdits(edits) {
   return edits
-    .toSorted(
-      (a, b) =>
-        new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime()
-    )
+    .toSorted((a, b) => {
+      if (a !== b) {
+        return a < b;
+      }
+      return new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime();
+    })
     .reduce((acc, v) => {
       const lastElt = acc.at(-1);
       if (!lastElt) {
