@@ -72,7 +72,10 @@ function groupChangelogEdits(edits) {
         }
       }
       return acc;
-    }, []);
+    }, [])
+    .toSorted(
+      (a, b) => new Date(a.start).getTime() - new Date(b.start).getTime()
+    );
 }
 
 console.log(
