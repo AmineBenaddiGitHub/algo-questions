@@ -25,21 +25,7 @@ function konamiMapping(str) {
     const b = substr[8];
     if (
       substr === `${u}${u}${d}${d}${l}${r}${l}${r}${b}${a}` &&
-      u !== d &&
-      u !== l &&
-      u !== r &&
-      u !== b &&
-      u !== a &&
-      d !== l &&
-      d !== r &&
-      d !== b &&
-      d !== a &&
-      l !== r &&
-      l !== b &&
-      l !== a &&
-      r !== b &&
-      r !== a &&
-      b !== a
+      new Set([u, d, l, r, a, b]).size === 6
     )
       return {
         [a]: "A",
