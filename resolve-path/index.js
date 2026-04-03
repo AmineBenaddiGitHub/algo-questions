@@ -37,10 +37,14 @@ const fs = {
 function resolvePath(fs, entry) {
   if (fs[entry] === null) return entry;
   if (!fs[entry]) return null;
-  let ptr = entry;
+  let ptr = entry,
+    entries = [entry];
   do {
-    if (fs[ptr]) ptr = fs[ptr];
-  } while (fs[ptr] && ptr !== entry);
+    if (fs[ptr]) {
+      entries.push(ptr);
+      ptr = fs[ptr];
+    }
+  } while (fs[ptr] && !entries.includes(ptr));
   return ptr !== entry ? ptr : null;
 }
 
