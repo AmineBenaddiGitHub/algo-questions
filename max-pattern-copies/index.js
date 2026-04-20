@@ -16,7 +16,7 @@ maxPatternCopies("??????", "abc")  // 2
 function maxPatternCopies(str, pattern) {
   const entries = str.split("");
   const letters = pattern.split("");
-  amine: while (entries.length > 0) {
+  whileLoop: while (entries.length > 0) {
     for (let i = 0; i < letters.length; i++) {
       const l = letters[i];
       const idx = entries.indexOf(l);
@@ -25,7 +25,7 @@ function maxPatternCopies(str, pattern) {
         const qIdx = entries.indexOf("?");
         if (qIdx > -1) entries.splice(qIdx, 1);
         else {
-          break amine;
+          break whileLoop;
         }
       }
     }
