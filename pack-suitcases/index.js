@@ -44,7 +44,7 @@ function packSuitcases(
   res = { count: 0, lastObjects: objects },
 ) {
   // We should remove the most full packs little by little ...
-  // Each time we remove the fullest and the biggest and recompute
+  // Each time we remove the most full and the biggest and recompute
   // the subSumCombo for the remaining objects and suitcases
   const map = suitcases.reduce((acc, v) => {
     acc[v] = subSumCombo(objects, v);
