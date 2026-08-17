@@ -17,7 +17,14 @@ Example:
 */
 
 function packRectangles(n, m, a, b) {
-  if (Math.min(n, m) < Math.min(a, b) || Math.max(n, m) < Math.max(a, b))
+  if (
+    Math.min(n, m) < Math.min(a, b) ||
+    Math.max(n, m) < Math.max(a, b) ||
+    n === 0 ||
+    m === 0 ||
+    a === 0 ||
+    b === 0
+  )
     return 0;
   const orientationX =
       n < a
