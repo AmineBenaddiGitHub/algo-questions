@@ -16,15 +16,9 @@ climbStairs(10)
 */
 
 function climbStairs(n, ptr = { ctr: 0 }) {
-  if (n < 0) return;
-  if (n === 1) {
-    ptr.ctr += 1;
-    return ptr.ctr;
-  }
-  if (n === 2) {
-    ptr.ctr += 2;
-    return ptr.ctr;
-  }
+  if (n < 0) return ptr.ctr;
+  if (n === 1) return ptr.ctr++;
+  if (n === 2) return (ptr.ctr += 2);
   climbStairs(n - 1, ptr);
   climbStairs(n - 2, ptr);
   return ptr.ctr;
