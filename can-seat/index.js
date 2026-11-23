@@ -16,20 +16,17 @@ Examples:
 // true
 */
 
-function canSeat(arr, constraints) {
-  const table1 = new Set(),
-    table2 = new Set();
-  for (let i = 0; i < arr.length; i++) {
+function canSeat(arr, constraints, nbrTables = 2) {
+  const tables = Array.from({ length: nbrTables }, (_) => new Set());
+  cycle: for (let i = 0; i < arr.length; i++) {
     const eConstraints = new Set(
       constraints.filter((v) => v.includes(arr[i])).flat(),
     );
-    if (table1.intersection(eConstraints).size === 0) {
-      table1.add(arr[i]);
-      continue;
-    }
-    if (table2.intersection(eConstraints).size === 0) {
-      table2.add(arr[i]);
-      continue;
+    for (let j = 0; j < nbrTables; j++) {
+      if (tables[j].intersection(eConstraints).size === 0) {
+        tables[j].add(arr[i]);
+        continue cycle;
+      }
     }
     return false;
   }
